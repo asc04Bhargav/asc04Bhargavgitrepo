@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function updateVideo(){
+            var getVideo=document.getElementById("tutorial")
+
+            getVideo.innerHTML="<div><iframe src='https://www.youtube.com/embed/PkZNo7MFNFg?si=TM3fekB2UL5eSmug' target='_blank'></iframe></div>";
+        }
+        function page2(){
+            var getchatgpt=document.getElementById("chatgpt")
+            getchatgpt.innerHTML="<a href= 'https://chatgpt.com/' target='_blank'> click for chat gpt</a>"
+        }
+</script>
+
+</head>
+<body>
+    <form onsubmit="return false">
+
+        <button onclick="updateVideo()" id="tutorial">
+            Click Here for youtube
+        </button>
+        <button onclick="page2()" id="chatgpt">
+            for chatgpt
+        </button>
+    </form>
+</body>
+</html>

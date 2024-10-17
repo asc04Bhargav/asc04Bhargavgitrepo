@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var myName="Bhargav";
+        console.log(myName);
+        console.log(typeof myName);
+
+        var num=42;
+        console.log(num);
+        console.log(typeof num)
+
+        //print multiple values.
+        console.log(myName, num);
+        console.log(typeof myName,typeof num);
+
+        //formate otput using console log
+        console.log("My name is:",myName);
+        //with placeholder
+        console.log("My name is: %s and my age is: %d", myName, num); //%s represents string address. %d is for number formate placeholder
+
+        //datatype for floating point values.
+        var floatNum= 3.14;
+        console.log(floatNum);
+        console.log(typeof floatNum);
+        //formated printing of floating point values.
+        console.log("Value of pi is: %f",floatNum);
+
+        //array for health vegitables.
+        var veggies=["Carrot","Broccoli","Spinach","Kale"];
+        //loop print
+        for (var i=0;i <veggies.length;i++){
+            console.log(veggies[i]);
+        }
+
+        //A multi dimentional array
+        var healthColor=[["Carrot","Orange"],
+                        ["Broccoli","Green"],
+                        ["Spinach","Green"],
+                        ["Kale","Green"]];
+
+        //Add a blue color fruit.
+        healthColor.push(["Blueberry","Blue"]);
+        //Add black color fruit.
+        healthColor.push(["Blackberry","Black"]);
+
+        //print the fruits/vegitables as a list.
+        for (var i=0;i<healthColor;length,i++){
+            console.log(healthColor[i][0] +"-"+healthColor[i][i]);
+        }
+        console.log("healthColors:",healthColor);
+
+        //add mango at index 2
+        healthColor.splice(2,0, ["Mango",'Yellow']);
+        console.log("healthColors:",healthColor);
+        //add multiple data at a time in given index.
+        healthColor.splice(3,0,["Orange","orange"],["Water melon","red"]);
+
+        //Assignment on js Arrays.
+        var names=["Bhargav","Uday","Sandeep"];
+        console.log(names);
+        //using unshift() method. add eleent at first position.
+        names.unshift("Anjan");
+        console.log(names);
+
+        //deleting the element in 1st position.
+        //using shift() method. removing 1st element.
+        names.shift();
+        console.log(names);
+
+        //pop() will remove element at last.
+        names.pop();
+        console.log(names);
+
+        //splice will add or remove element at specified index.
+        healthColor.splice(2,5);
+        console.log(healthColor);
+
+        //slice() -extracts section of elemnts from array to new array.
+        names.unshift("Anjan");
+        var shr_names= names.slice(0,3);
+        console.log(shr_names);
+
+        //concat() this will combine 2 arrays and gives in a single array.
+        var section=["A","B","C","D","E"];
+        var combine= names.concat(section);
+        console.log(combine);
+
+        //join() will add all elements of an array into strings
+        var constr=combine.join(",");
+        console.log(constr);
+
+        //indexof() will return the 1 st index of an specified element. if we have duplicates in array.
+        var alphabets=["a","b","c","d","e","f","g","h","a","b","c","a","c","e"];
+        console.log(alphabets.indexOf("d"));
+
+        //lastindexof() will return last index of duplicate elemnt in array.
+        console.log(alphabets.lastIndexOf("c"));
+
+        //includes() determines whether certain element is included in an array.return a bolean value.
+        console.log(alphabets.includes("f"));
+
+        //reverse() it will reverses all the elements in an array.
+        console.log(names.reverse());
+        //reverse the 2d array column wise.
+        console.log(healthColor.slice().reverse());
+        //reverse the 2d array row wise
+        console.log(healthColor.map(row=>row.slice().reverse()));
+
+        //sort() this method will sort by considering strings so we use a-b to sort numbers.
+        var digits=[10,9,13,8,7,14];
+        //sorting in ascending order
+        console.log(digits.sort((a,b)=>(a-b)));
+        //sorting in descending order.
+        console.log(digits.sort((a,b)=>(b-a)));
+
+        //filter() will creating new array by filtering by passing the implemented provided function.
+        //it will fliter a new array if function is satisfied.
+        var filarry=digits.filter(value=>value > 10);
+        console.log(filarry);
+        
+        //map() Creates a new array with the results of calling a provided function on every element in the array.
+        //maps is used to create new array by appplying function to each element of an existing array,it doesn't modify the exsiting array.
+        //multiply every nymber with 2.
+        console.log(digits.map(var_name => var_name *2));
+
+        //reduce() used to apply function to accumulate all elements in an array into a single value.
+        //sum of numbers in an array.
+        console.log("sum of elements in array: ",digits.reduce((num1,num2) => num1+num,0)) //0 is initial value; num1,num2 are refer to elements in array.
+
+        
+        
+    </script>
+</body>
+</html>
