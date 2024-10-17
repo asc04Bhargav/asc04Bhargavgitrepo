@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function caseInsensitiveSearch(name, input){
+            var output = name.toLowerCase().startsWith(input);
+            return output;
+        }
+        console.log(caseInsensitiveSearch('John Doe','j'));
+        console.log(caseInsensitiveSearch('John Doe','o'))
+
+    //Concise Function. big arrow.
+        var funObj=(name, input) => name.toLowerCase().startsWith(input)
+        console.log(funObj('John','j'));
+        
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

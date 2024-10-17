@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--external js can be used in multiple documents.-->
+    <script>console.log("s0")</script>
+
+    <script src="external.js"></script>
+    <!--internal js can be used across the documents-->
+
+    <script>console.log("s1")</script>
+    <script>console.log("s2")</script>
+
+    <script>
+        function internalScript(){
+            console.log("The internal Script")
+
+        }
+        console.log("*")
+        internalScript();
+    </script>
+    <script>
+        internalScript();
+    </script>
+    
+</head>
+<body>
+    <form>
+        <!--inline / belongs to element t-->
+        <button onclick="alert('Welcome JS');">Get Message</button>
+        <button onclick="alert('Thank You'); console.log('Thankyou')">
+            Say Thankyou</button>
+        <!--default submit button-->
+        <button onclick="internalScript()">internal</button>
+
+        <!--doesn't submit the server-->
+        <button type="button" onclick="internalScript()" >
+            internal
+        </button>
+        <button type="button" onclick="externalScript()">
+            external
+        </button>
+    </form>
+</body>
+</html>
