@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ES2018",
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "module": "CommonJS",
+    }
+}
+
+//target :The version of ECMAScript that the code should be compliled to.
+//
