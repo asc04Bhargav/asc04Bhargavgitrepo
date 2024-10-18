@@ -21,5 +21,5 @@ export class ProductManager{
         this.products = this.products.filter(product => product.id !== id);
     }
 
-    //
+    
 }
