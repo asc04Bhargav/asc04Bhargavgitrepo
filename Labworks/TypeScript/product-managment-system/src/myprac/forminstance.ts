@@ -1,4 +1,5 @@
 export interface formm{
+        id:number;
         name:string;
         age:number;
         gender:string;

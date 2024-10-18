@@ -11,9 +11,14 @@ export class FormManager{
         return this.forminstance;
     }
 
-    removeData(mobileNumber:number):void{
-        this.forminstance = this.forminstance.filter(formm => formm.mobileNumber !== mobileNumber);
+    removeData(id:number):void{
+        this.forminstance = this.forminstance.filter(formm => formm.id !== id);
 
+    }
+
+    searchData(id:number):void{
+        this.forminstance=this.forminstance.filter(formm => formm.id == id);
+        console.log(this.forminstance);
     }
 }
 
