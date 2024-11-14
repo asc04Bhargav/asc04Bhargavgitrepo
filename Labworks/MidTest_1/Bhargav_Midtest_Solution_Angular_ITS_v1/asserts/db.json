@@ -1,0 +1,28 @@
+{
+  "issues": [
+    {
+      "title": "Fix login bug",
+      "description": "User cannot login with valid credentials",
+      "priority": "Low",
+      "status": "Open",
+      "assignee": "Uday",
+      "id": "1"
+    },
+    {
+      "title": "Improve UI responsiveness",
+      "description": "UI lags on mobile devices",
+      "priority": "Medium",
+      "status": "In Progress",
+      "assignee": "sandeep",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "title": "bhargav",
+      "description": "iyubftchg ",
+      "priority": "Medium",
+      "status": "Open",
+      "assignee": "Uday"
+    }
+  ]
+}

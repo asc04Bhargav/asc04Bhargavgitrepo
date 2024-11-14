@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        form{
+            width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba (0, 0, 0, 0.1);
+
+        }
+        legend{
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        label{
+            display: contents;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea,input[type="date"]{
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        input[type="radio"]{
+            margin-left: 20px;
+        }
+        input[type="submit"]{
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <script>
+        function displayData(event){
+            event.preventDefault();
+            
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <form onsubmit="displayData(event);">
+            <fieldset>
+                <legend>Registration Form</legend>
+                <label>
+                    Enter Your Full Name:
+                </label>
+                <input type="text" class="name">
+                <label>Enter Your Emai Id:</label>
+                <input type="email" class="email">
+                <label>Enter your Password</label>
+                <input type="password" class="password">
+                <label>Confirm your Password</label>
+                <input type="password" class="password">
+                <label>Enter your Gender:</label><br/>
+                <input type="radio" name="Gender" value="Male" id="male">
+                <label for="male">Male</label>
+
+                <input type="radio" name="Gender" value="Female" id="female">
+                <label for="female">Female</label>
+
+                <input type="radio" name="Gender" value="Others" id="others">
+                <label for="others">Others</label>
+                <br/><br/>
+
+                <label>Enter your DOB</label>
+                <input type="date" class="dob">
+                <label>Enter your Address</label>
+                <textarea name="Address"></textarea>
+                <input type="submit" value="submit">
+            </fieldset>
+        </form>
+    </div>
+    
+</body>
+</html>
