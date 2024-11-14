@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EditIssueComponent implements OnInit {
   issueForm!: FormGroup;
-  issueId!: number;
+  issueId: number=0;
 
   constructor(
     private fb: FormBuilder,
@@ -36,7 +36,8 @@ export class EditIssueComponent implements OnInit {
           description: [issue.description, Validators.required],
           priority: [issue.priority, Validators.required],
           status: [issue.status, Validators.required],
-          assignee: [issue.assignee, Validators.required]
+          assignee: [issue.assignee, Validators.required],
+          date: [issue.date, Validators.required]
         });
       },
       (error) => {
