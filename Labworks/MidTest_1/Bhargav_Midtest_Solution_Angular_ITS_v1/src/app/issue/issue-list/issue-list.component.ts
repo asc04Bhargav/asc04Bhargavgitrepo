@@ -36,8 +36,9 @@ export class IssueListComponent implements OnInit {
   }
 
   logout(): void {
-    // Perform any necessary logout logic (like clearing authentication tokens)
-    // For now, we'll just navigate to the login page
-    this.router.navigate(['/login']); // Navigate to the login page
+    sessionStorage.removeItem('loggedIn');
+    alert("you are logged out");
+    this.router.navigate(['/']); 
+
   }
 }
