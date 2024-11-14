@@ -18,7 +18,8 @@ export class AddIssueComponent {
       description: ['', Validators.required],
       priority: ['Low', Validators.required],
       status: ['Open', Validators.required],
-      assignee: ['', Validators.required]
+      assignee: ['', Validators.required],
+      date: ['', Validators.required]
     });
   }
 

@@ -23,6 +23,7 @@
                 <th>Status</th>
                 <th>Priority</th>
                 <th>Assignee</th>
+                <th>date</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -33,6 +34,7 @@
                 <td>{{ issue.status }}</td>
                 <td>{{ issue.priority }}</td>
                 <td>{{ issue.assignee }}</td>
+                <td>{{issue.date}}</td>
                 <td>
                     <button class="btn btn-warning btn-sm" [routerLink]="['/issues', issue.id]">Update</button>
                     &nbsp;&nbsp;&nbsp;
