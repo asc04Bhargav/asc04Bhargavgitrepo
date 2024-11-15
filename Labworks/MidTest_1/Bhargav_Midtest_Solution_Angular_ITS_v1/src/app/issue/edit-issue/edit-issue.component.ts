@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IssueService } from '../issue.service';
-import { Issue } from '../issue.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,34 +9,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit-issue.component.css']
 })
 export class EditIssueComponent implements OnInit {
-  issueForm!: FormGroup;
-  issueId: number=0;
+  issueForm!: FormGroup; // Declare FormGroup
+  issueId: number = 0;   // Issue ID
 
   constructor(
     private fb: FormBuilder,
     private issueService: IssueService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    // Initialize FormGroup to prevent template errors
+    this.issueForm = this.fb.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      priority: ['', Validators.required],
+      status: ['', Validators.required],
+      assignee: ['', Validators.required],
+      date: ['', Validators.required]
+    });
+  }
 
   ngOnInit(): void {
+    // Get issue ID from route parameters
     this.route.params.subscribe(params => {
-      this.issueId = +params['id']; // parse id as a number
+      this.issueId = +params['id']; // Parse ID as a number
       this.loadIssue();
     });
   }
 
   loadIssue(): void {
+    // Fetch issue data and patch it to the form
     this.issueService.getIssueById(this.issueId).subscribe(
       (issue) => {
-        this.issueForm = this.fb.group({
-          id: [issue.id, Validators.required],
-          title: [issue.title, Validators.required],
-          description: [issue.description, Validators.required],
-          priority: [issue.priority, Validators.required],
-          status: [issue.status, Validators.required],
-          assignee: [issue.assignee, Validators.required],
-          date: [issue.date, Validators.required]
+        this.issueForm.patchValue({
+          id: issue.id,
+          title: issue.title,
+          description: issue.description,
+          priority: issue.priority,
+          status: issue.status,
+          assignee: issue.assignee,
+          date: issue.date
         });
       },
       (error) => {
@@ -50,7 +61,9 @@ export class EditIssueComponent implements OnInit {
     if (this.issueForm.invalid) {
       return;
     }
-    const updatedIssue = { ...this.issueForm.value, id: this.issueId }; // add id explicitly
+
+    // Update issue with form data
+    const updatedIssue = this.issueForm.value;
     this.issueService.updateIssue(this.issueId, updatedIssue).subscribe(
       () => {
         this.router.navigate(['/issues']);

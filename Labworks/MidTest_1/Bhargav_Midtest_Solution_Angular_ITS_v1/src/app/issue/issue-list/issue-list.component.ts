@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; // Import Router
 import { IssueService } from '../issue.service';
 import { Issue } from '../issue.model';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-issue-list',
@@ -14,6 +15,7 @@ export class IssueListComponent implements OnInit {
 
   constructor(
     private issueService: IssueService,
+    private authService:AuthService,
     private router: Router // Inject Router for navigation
   ) {}
 
@@ -34,11 +36,9 @@ export class IssueListComponent implements OnInit {
       });
     }
   }
-
   logout(): void {
-    sessionStorage.removeItem('loggedIn');
-    alert("you are logged out");
-    this.router.navigate(['/']); 
-
+    this.authService.logout(); // Call logout to update logged-in state
+    this.router.navigate(['/login']); // Redirect to login page
   }
+  
 }
