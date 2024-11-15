@@ -8,7 +8,6 @@ export class AuthService {
   private loggedIn = false;
 
   login(username: string, password: string): Observable<boolean> {
-    // Mock login logic
     if (username === 'admin' && password === 'password') {
       this.loggedIn = true;
       return of(true);
@@ -17,7 +16,7 @@ export class AuthService {
   }
 
   logout(): void {
-    this.loggedIn = false;
+    this.loggedIn = false; // Ensure loggedIn is set to false
   }
 
   isAuthenticated(): boolean {

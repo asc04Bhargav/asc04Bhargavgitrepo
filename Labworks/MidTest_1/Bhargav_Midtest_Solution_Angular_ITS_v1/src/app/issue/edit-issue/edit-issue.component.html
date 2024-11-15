@@ -1,97 +1,100 @@
 <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card shadow-lg p-4 bg-light rounded">
-          <h2 class="text-center mb-4">Edit Issue</h2>
-          <form [formGroup]="issueForm" (ngSubmit)="onSubmit()">
-            <!-- Id -->
-            <div class="mb-3">
-                <label for="id" class="form-label">ID :</label>
-                <input
-                  id="id"
-                  formControlName="id"
-                  class="form-control"
-                  required
-                  placeholder="Enter id"
-                />
-              </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg p-4 bg-light rounded">
+        <h2 class="text-center mb-4">Edit Issue</h2>
+        <!-- Add *ngIf to delay rendering until issueForm is initialized -->
+        <form *ngIf="issueForm" [formGroup]="issueForm" (ngSubmit)="onSubmit()">
 
-            <!-- Title Field -->
-            <div class="mb-3">
-              <label for="title" class="form-label">Title</label>
-              <input
-                id="title"
-                formControlName="title"
-                class="form-control"
-                required
-                placeholder="Enter title"
-              />
-            </div>
-            
-            <!-- Description Field -->
-            <div class="mb-3">
-              <label for="description" class="form-label">Description</label>
-              <textarea
-                id="description"
-                formControlName="description"
-                class="form-control"
-                required
-                placeholder="Enter description"
-              ></textarea>
-            </div>
-            
-            <!-- Priority Field -->
-            <div class="mb-3">
-              <label for="priority" class="form-label">Priority</label>
-              <select id="priority" formControlName="priority" class="form-select">
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
-              </select>
-            </div>
-            
-            <!-- Status Field -->
-            <div class="mb-3">
-              <label for="status" class="form-label">Status</label>
-              <select id="status" formControlName="status" class="form-select">
-                <option value="Open">Open</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Resolved">Resolved</option>
-                <option value="Closed">Closed</option>
-              </select>
-            </div>
-            
-            <!-- Assignee Field -->
-            <div class="mb-3">
-              <label for="assignee" class="form-label">Assignee</label>
-              <input
-                id="assignee"
-                formControlName="assignee"
-                class="form-control"
-                required
-                placeholder="Enter assignee"
-              />
-            </div>
+          <!-- id Field -->
+          <div class="mb-3 d-none">
+            <label for="id" class="form-label">Title</label>
+            <input
+              id="id"
+              formControlName="id"
+              class="form-control"
+              placeholder="Enter title"
+              required
+            />
+          </div>
 
-             <!-- Date Field -->
-             <div class="mb-3">
-                <label for="Date" class="form-label">Assignee</label>
-                <input
-                  id="date"
-                  formControlName="date"
-                  class="form-control"
-                  required
-                  placeholder="Enter date"
-                />
-              </div>
-  
-            <!-- Submit Button -->
-            <div class="text-center">
-              <button type="submit" class="btn btn-primary" [disabled]="issueForm.invalid">Update Issue</button>
-            </div>
-          </form>
-        </div>
+          <!-- Title Field -->
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              id="title"
+              formControlName="title"
+              class="form-control"
+              placeholder="Enter title"
+              required
+            />
+          </div>
+
+          <!-- Description Field -->
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              id="description"
+              formControlName="description"
+              class="form-control"
+              placeholder="Enter description"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Priority Field -->
+          <div class="mb-3">
+            <label for="priority" class="form-label">Priority</label>
+            <select id="priority" formControlName="priority" class="form-select">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+
+          <!-- Status Field -->
+          <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select id="status" formControlName="status" class="form-select">
+              <option value="Open">Open</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+              <option value="Closed">Closed</option>
+            </select>
+          </div>
+
+          <!-- Assignee Field -->
+          <div class="mb-3">
+            <label for="assignee" class="form-label">Assignee</label>
+            <input
+              id="assignee"
+              formControlName="assignee"
+              class="form-control"
+              placeholder="Enter assignee"
+              required
+            />
+          </div>
+
+          <!-- Date Field -->
+          <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input
+              id="date"
+              formControlName="date"
+              class="form-control"
+              placeholder="Enter date"
+              required
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="issueForm.invalid">
+              Update Issue
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  
+</div>

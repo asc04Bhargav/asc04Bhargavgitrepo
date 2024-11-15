@@ -5,18 +5,18 @@
       "description": "User cannot login with valid credentials",
       "priority": "Low",
       "status": "Open",
-      "assignee": "Uday",
+      "assignee": "Bhargav",
       "date": "12-09-2023",
       "id": "1"
     },
     {
       "id": "2",
-      "title": "Improve UI responsiveness",
-      "description": "UI lags on mobile devices",
-      "priority": "Medium",
-      "status": "In Progress",
+      "title": "vtr",
+      "description": "yvtrdvgf",
+      "priority": "Low",
+      "status": "Open",
       "assignee": "sandeep",
-      "date": "14-09-2009"
+      "date": "15-09-2009"
     }
   ]
 }
