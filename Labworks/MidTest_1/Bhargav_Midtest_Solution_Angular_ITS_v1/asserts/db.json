@@ -2,7 +2,7 @@
   "issues": [
     {
       "title": "Fix login bug",
-      "description": "User cannot login with valid credentials",
+      "description": "\n",
       "priority": "Low",
       "status": "Open",
       "assignee": "Bhargav",
