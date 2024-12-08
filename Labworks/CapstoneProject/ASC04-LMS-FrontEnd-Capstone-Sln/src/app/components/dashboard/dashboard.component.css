@@ -1,0 +1,27 @@
+.card {
+    border-radius: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card i {
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    font-weight: bold;
+    color: #343a40;
+  }
+  footer {
+    margin-top: 20px; /* Adjust the value as needed */
+  }
+  .d-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  

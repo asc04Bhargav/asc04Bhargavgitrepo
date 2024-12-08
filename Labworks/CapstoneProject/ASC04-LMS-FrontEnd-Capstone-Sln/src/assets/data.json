@@ -1,0 +1,154 @@
+{
+  "register": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "password": "password123",
+      "mobile": "1234567890",
+      "gender": "Male"
+    },
+    {
+      "id": "",
+      "name": "Bhargav",
+      "email": "bhargav@gmail.com",
+      "password": "Bhargav@123",
+      "mobile": "6305134345",
+      "gender": "Male"
+    }
+  ],
+  "catalogues": [
+    {
+      "id": "C001",
+      "title": "Java Basics",
+      "author": "John Doe",
+      "year": 2021
+    },
+    {
+      "id": "C002",
+      "title": "Spring Boot",
+      "author": "Jane Smith",
+      "year": 2020
+    },
+    {
+      "id": "C003",
+      "title": "Data structures",
+      "author": "Shartaz Shani",
+      "year": 2004
+    },
+    {
+      "id": "C006",
+      "title": "Test3",
+      "author": "Test 3 Author ",
+      "year": 2014
+    },
+    {
+      "id": "C006",
+      "title": "Test 5",
+      "author": "Author 5",
+      "year": 2007
+    },
+    {
+      "id": "C007",
+      "title": "Test 8",
+      "author": "Author 8",
+      "year": 2009
+    },
+    {
+      "id": "C007",
+      "title": "Test 9",
+      "author": "test 9 author",
+      "year": 2000
+    },
+    {
+      "id": "C008",
+      "title": "test 11",
+      "author": "Author 11",
+      "year": 2111
+    }
+  ],
+  "members": [
+    {
+      "id": "M1001",
+      "name": "Alice",
+      "email": "alice@example.com",
+      "number": "9725271772",
+      "gender": "Male"
+    },
+    {
+      "id": "M1002",
+      "name": "Bob",
+      "email": "bob@example.com",
+      "number": "9725271846",
+      "gender": "Male"
+    }
+  ],
+  "circulations": [
+    {
+      "id": "BB001",
+      "book": {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "isbn": "9780743273565"
+      },
+      "member": {
+        "name": "John Doe",
+        "id": "M001"
+      },
+      "action": "Borrowed",
+      "date": "2024-01-10",
+      "dueDate": "2024-01-20"
+    },
+    {
+      "id": "BB002",
+      "book": {
+        "title": "Sorry you are not my type",
+        "author": "",
+        "isbn": ""
+      },
+      "member": {
+        "name": "Bhargav",
+        "id": ""
+      },
+      "action": "Borrowed",
+      "date": "2024-12-03",
+      "dueDate": "2024-12-11",
+      "returnDate": "",
+      "borrowedBookId": ""
+    },
+    {
+      "id": "BB003",
+      "book": {
+        "title": "The Great Gatsby",
+        "author": "",
+        "isbn": ""
+      },
+      "member": {
+        "name": "Charlie Brown",
+        "id": ""
+      },
+      "action": "Borrowed",
+      "date": "2024-12-03",
+      "dueDate": "2024-12-11",
+      "returnDate": "",
+      "borrowedBookId": ""
+    },
+    {
+      "id": "BR001",
+      "book": {
+        "title": "The Great Gatsby",
+        "author": "",
+        "isbn": ""
+      },
+      "member": {
+        "name": "John Doe",
+        "id": ""
+      },
+      "action": "Returned",
+      "date": "2024-11-08",
+      "dueDate": "",
+      "returnDate": "2024-12-04",
+      "borrowedBookId": "BB001"
+    }
+  ]
+}
