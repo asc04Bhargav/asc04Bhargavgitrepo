@@ -1,0 +1,103 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="text-center mb-4">Register</h2>
+  
+        <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              [(ngModel)]="registerData.name"
+              required
+              minlength="3"
+              placeholder="Enter your name"
+            />
+            <div *ngIf="registerForm.controls['name']?.errors?.['minlength']" class="text-danger">
+              Name must be at least 3 characters long.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              [(ngModel)]="registerData.email"
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              placeholder="Enter your email"
+            />
+            <div *ngIf="registerForm.controls['email']?.errors?.['pattern']" class="text-danger">
+              Please enter a valid email.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              [(ngModel)]="registerData.password"
+              required
+              minlength="8"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$"
+              placeholder="Enter your password"
+            />
+            <div *ngIf="registerForm.controls['password']?.errors?.['pattern']" class="text-danger">
+              Password must be at least 8 characters long with uppercase, lowercase, a number, and a special character.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="mobile" class="form-label">Mobile Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="mobile"
+              name="mobile"
+              [(ngModel)]="registerData.mobile"
+              required
+              pattern="^[9876][0-9]{9}$"
+              placeholder="Enter your mobile number"
+            />
+            <div *ngIf="registerForm.controls['mobile']?.errors?.['pattern']" class="text-danger">
+              Mobile number must be 10 digits starting with 9, 8, 7 or 6.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select
+              class="form-select"
+              id="gender"
+              name="gender"
+              [(ngModel)]="registerData.gender"
+              required
+            >
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <div *ngIf="registerForm.controls['gender']?.errors?.['required']" class="text-danger">
+              Please select your gender.
+            </div>
+          </div>
+  
+          <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Register</button>
+  
+          <div *ngIf="errorMessage" class="text-danger mt-3 text-center">
+            {{ errorMessage }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

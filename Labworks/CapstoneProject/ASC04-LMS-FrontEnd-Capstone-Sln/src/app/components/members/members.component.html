@@ -1,0 +1,70 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary">Members Management</h2>
+    <div>
+      <a routerLink="/dashboard" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Back to Dashboard
+      </a>
+    </div>
+  </div>
+
+  <!-- Add Member Form -->
+  <div *ngIf="!isEdit">
+    <h4>Add Member</h4>
+    <form (ngSubmit)="addMember()">
+      <input type="text" placeholder="Name" [(ngModel)]="newMember.name" name="name" required />
+      <input type="email" placeholder="Email" [(ngModel)]="newMember.email" name="email" required />
+      <input type="text" placeholder="Phone Number" [(ngModel)]="newMember.number" name="number" required />
+      <select [(ngModel)]="newMember.gender" name="gender" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <button type="submit" class="btn btn-success">Add Member</button>
+    </form>
+  </div>
+
+  <!-- Edit Member Form -->
+  <div *ngIf="isEdit">
+    <h4>Edit Member</h4>
+    <form (ngSubmit)="updateMember()">
+      <input type="text" [(ngModel)]="selectedMember.name" name="name" required />
+      <input type="email" [(ngModel)]="selectedMember.email" name="email" required />
+      <input type="text" [(ngModel)]="selectedMember.number" name="number" required />
+      <select [(ngModel)]="selectedMember.gender" name="gender" required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Update Member</button>
+      <button type="button" class="btn btn-secondary" (click)="isEdit = false">Cancel</button>
+    </form>
+  </div>
+
+  <!-- Members List -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Number</th>
+        <th>Gender</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let member of members">
+        <td>{{ member.id }}</td>
+        <td>{{ member.name }}</td>
+        <td>{{ member.email }}</td>
+        <td>{{ member.number }}</td>
+        <td>{{ member.gender }}</td>
+        <td>
+          <button (click)="editMember(member)" class="btn btn-warning btn-sm">Edit</button>
+          <button (click)="deleteMember(member.id)" class="btn btn-danger btn-sm">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

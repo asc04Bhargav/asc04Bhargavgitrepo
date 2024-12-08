@@ -1,0 +1,180 @@
+<div class="container mt-5">
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary">Circulation Management</h2>
+    <a routerLink="/dashboard" class="btn btn-secondary">
+      <i class="bi bi-arrow-left"></i> Back to Dashboard
+    </a>
+  </div>
+
+  <!-- Add Borrow / Add Returned Buttons -->
+  <div class="mb-4">
+    <button class="btn btn-success me-2" (click)="showBorrowForm()">Add Borrowed Book</button>
+    <button class="btn btn-info" (click)="showReturnedForm()">Add Returned Book</button>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="mb-4">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search by book title, member name, or borrowed book ID"
+      [(ngModel)]="searchQuery"
+      (input)="searchCirculations()"
+    />
+  </div>
+
+  <!-- Add/Edit Form -->
+  <div class="card mb-4" *ngIf="isAddingBorrow || isAddingReturned || isEditing">
+    <div class="card-header bg-info text-white">
+      <h4 class="mb-0">
+        {{ isEditing ? 'Edit Circulation' : isAddingBorrow ? 'Add Borrowed Book' : 'Add Returned Book' }}
+      </h4>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="isEditing ? updateCirculation() : addCirculation()">
+        <div class="mb-3">
+          <label for="catalogueId" class="form-label">Catalogue ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="catalogueId"
+            [(ngModel)]="circulationForm.catalogueId"
+            name="catalogueId"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="memberId" class="form-label">Member ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="memberId"
+            [(ngModel)]="circulationForm.memberId"
+            name="memberId"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="date"
+            [(ngModel)]="circulationForm.date"
+            name="date"
+            required
+          />
+        </div>
+        <div class="mb-3" *ngIf="isAddingBorrow">
+          <label for="dueDate" class="form-label">Due Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="dueDate"
+            [(ngModel)]="circulationForm.dueDate"
+            name="dueDate"
+          />
+        </div>
+        <div class="mb-3" *ngIf="isAddingReturned">
+          <label for="returnDate" class="form-label">Return Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="returnDate"
+            [(ngModel)]="circulationForm.returnDate"
+            name="returnDate"
+          />
+        </div>
+        <div class="mb-3" *ngIf="isAddingReturned">
+          <label for="borrowedBookId" class="form-label">Borrowed Book ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="borrowedBookId"
+            [(ngModel)]="circulationForm.borrowedBookId"
+            name="borrowedBookId"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary w-100">
+          {{ isEditing ? 'Update Circulation' : 'Add Circulation' }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Borrowed Circulations -->
+  <div class="card mb-4" *ngIf="borrowedCirculations.length > 0">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Borrowed Books</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover table-bordered">
+        <thead class="table-primary">
+          <tr>
+            <th>ID</th>
+            <th>Book Title</th>
+            <th>Member Name</th>
+            <th>Date</th>
+            <th>Due Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of borrowedCirculations">
+            <td>{{ record.id }}</td>
+            <td>{{ record.catalogue.title }}</td>
+            <td>{{ record.member.name }}</td>
+            <td>{{ record.date }}</td>
+            <td>{{ record.dueDate }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm me-2" (click)="editCirculation(record)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteCirculation(record.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Returned Circulations -->
+  <div class="card mb-4" *ngIf="returnedCirculations.length > 0">
+    <div class="card-header bg-success text-white">
+      <h4 class="mb-0">Returned Books</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover table-bordered">
+        <thead class="table-success">
+          <tr>
+            <th>ID</th>
+            <th>Book Title</th>
+            <th>Member Name</th>
+            <th>Date</th>
+            <th>Return Date</th>
+            <th>Borrowed Book ID</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of returnedCirculations">
+            <td>{{ record.id }}</td>
+            <td>{{ record.catalogue.title }}</td>
+            <td>{{ record.member.name }}</td>
+            <td>{{ record.date }}</td>
+            <td>{{ record.returnDate }}</td>
+            <td>{{ record.borrowedBookId }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm me-2" (click)="editCirculation(record)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteCirculation(record.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- No Records -->
+  <div *ngIf="circulations.length === 0" class="text-center text-muted">
+    <i class="bi bi-info-circle"></i> No circulation records available.
+  </div>
+</div>

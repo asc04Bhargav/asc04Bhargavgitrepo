@@ -1,0 +1,70 @@
+<div class="container mt-5">
+  <!-- Simple Navbar -->
+  <nav class="navbar navbar-light bg-light mb-5">
+    <a class="navbar-brand mx-auto" href="#">Library Management System (LMS)</a>
+  </nav>
+
+  <!-- Login Form -->
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <h3 class="text-center mb-4">Login</h3>
+
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <!-- Email Field -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            [(ngModel)]="loginData.email"
+            required
+            email
+            #emailCtrl="ngModel"
+            placeholder="Enter your email"
+          />
+          <div *ngIf="emailCtrl.invalid && emailCtrl.touched" class="text-danger">
+            Please enter a valid email.
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            [(ngModel)]="loginData.password"
+            required
+            minlength="6"
+            #passwordCtrl="ngModel"
+            placeholder="Enter your password"
+          />
+          <div *ngIf="passwordCtrl.invalid && passwordCtrl.touched" class="text-danger">
+            Password must be at least 6 characters long.
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Login</button>
+
+        <!-- Error Messages -->
+        <div *ngIf="loginData.email == '' || loginData.password == ''" class="text-danger mt-3 text-center">
+          Please enter both email and password.
+        </div>
+
+        <div *ngIf="errorMessage" class="text-danger mt-3 text-center">
+          {{ errorMessage }}
+        </div>
+      </form>
+
+      <!-- Link to Registration Page -->
+      <div class="text-center mt-3">
+        <p>Don't have an account? <a routerLink="/register" class="text-primary">Register here</a></p>
+      </div>
+    </div>
+  </div>
+</div>

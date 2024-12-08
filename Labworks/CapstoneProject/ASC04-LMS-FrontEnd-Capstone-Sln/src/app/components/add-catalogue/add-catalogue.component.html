@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <h2>Add Catalogue</h2>
+    <form (ngSubmit)="addCatalogue()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="catalogue.title" name="title" required />
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input type="text" class="form-control" id="author" [(ngModel)]="catalogue.author" name="author" required />
+      </div>
+      <div class="mb-3">
+        <label for="year" class="form-label">Year</label>
+        <input type="number" class="form-control" id="year" [(ngModel)]="catalogue.year" name="year" required />
+      </div>
+      <button type="submit" class="btn btn-success">Add</button>
+    </form>
+  </div>
+  
