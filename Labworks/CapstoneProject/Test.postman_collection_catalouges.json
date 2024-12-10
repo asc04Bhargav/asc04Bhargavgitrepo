@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "8dbc0ca3-ab0f-4937-991d-c5f4da4a00e3",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39277875"
+	},
+	"item": [
+		{
+			"name": "Guest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v2/catalogues",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v2",
+						"catalogues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \r\n        \"title\": \"an intresting to Life\",\r\n        \"author\": \"John Don\",\r\n        \"description\": \"very nice Inspirational Strory\",\r\n        \"publishedYear\": 1993\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v2/catalogues",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v2",
+						"catalogues"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"LC003\",\r\n    \"title\": \"an intresting to Life\",\r\n    \"author\": \"John smith\",\r\n    \"description\": \"very nice Inspirational Strory\",\r\n    \"publishedYear\": 1993\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v2/catalogues/LC003",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v2",
+						"catalogues",
+						"LC003"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"LC003\",\r\n    \"title\": \"an intresting to Life\",\r\n    \"author\": \"John smith\",\r\n    \"description\": \"very nice Inspirational Strory\",\r\n    \"publishedYear\": 1993\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v2/catalogues/LC003",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v2",
+						"catalogues",
+						"LC003"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
